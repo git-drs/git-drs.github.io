@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pulse Music: feel your library</title>
+<meta name="description" content="Pulse is a beautiful music player for Android. Tracks, albums, playlists, folders and queue, three cover-art styles, gapless playback and a gorgeous light and dark theme.">
+<meta name="theme-color" content="#0a0a0c">
+<meta property="og:title" content="Pulse Music: feel your library">
+<meta property="og:description" content="A beautiful music player for Android with light and dark themes, three cover-art styles and gapless playback.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://git-drs.github.io/pulse-music/assets/og.jpg">
+<meta property="og:url" content="https://git-drs.github.io/pulse-music/">
+<link rel="canonical" href="https://git-drs.github.io/pulse-music/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/unbounded-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  (function () {
+    var d = document.documentElement, t = null;
+    try { t = localStorage.getItem("pulse-theme"); } catch (e) {}
+    if (t !== "light") t = "dark"; // dark by default; a saved choice is respected
+    d.setAttribute("data-theme", t);
+    d.classList.add("js");
+    setTimeout(function () { if (!window.__pulseReady) d.classList.remove("js"); }, 3500);
+  })();
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><i></i></div>
+<div class="glow" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="#top" aria-label="Pulse Music home"><svg class="note" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.6325,9.17667 L14,10.7208 L14,17.5001 C14,19.9853 11.9853,22.0001 9.5,22.0001 C7.01472,22.0001 5,19.9853 5,17.5001 C5,15.0148 7.01472,13.0001 9.5,13.0001 C10.4251,13.0001 11.285,13.2792 12,13.7578 L12,6.44158 C12,5.15029 12.8263,4.00387 14.0513,3.59553 L18.0257,2.27075 C18.997,1.94699 20,2.66994 20,3.69378 L20,7.2793 C20,8.14017 19.4491,8.90444 18.6325,9.17667 Z"/></svg><span>Pulse</span></a>
+  <ul class="nav-links">
+    <li><a href="#library">Library</a></li>
+    <li><a href="#player">Player</a></li>
+    <li><a href="#themes">Themes</a></li>
+    <li><a href="#settings">Settings</a></li>
+    <li><a href="../">All apps</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="theme-toggle" type="button" aria-label="Toggle site theme" title="Toggle light / dark">
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.6M12 19.4V22M2 12h2.6M19.4 12H22M4.9 4.9l1.9 1.9M17.2 17.2l1.9 1.9M19.1 4.9l-1.9 1.9M6.8 17.2l-1.9 1.9"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
+    </button>
+    <a class="btn btn--sm" href="https://play.google.com/store/apps/details?id=com.pulsemusic.app">Google Play</a>
+  </div>
+</nav>
+
+<main>
+<!-- ================================================================ HERO -->
+<header class="hero" id="top">
+  <div class="rings" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <p class="eyebrow hero-eyebrow">A music player for Android</p>
+  <h1 class="hero-title" aria-label="Pulse"><span aria-hidden="true">PULSE</span></h1>
+
+  <div class="hero-phones">
+    <div class="hp hp-l"><figure class="phone phone--light " data-tilt>
+  <div class="phone-shell"><img src="assets/img/player-circle-light.webp" alt="Pulse player circle screen in light mode" width="720" height="1595" loading="eager" fetchpriority="high" decoding="async"></div>
+  <figcaption class="tag"><i></i>Light · Circle art</figcaption>
+</figure></div>
+    <div class="hp hp-c"><figure class="phone phone--dark " data-tilt>
+  <div class="phone-shell"><img src="assets/img/player-full-dark.webp" alt="Pulse player full screen in dark mode" width="720" height="1595" loading="eager" fetchpriority="high" decoding="async"></div>
+  <figcaption class="tag"><i></i>Dark · Full art</figcaption>
+</figure></div>
+    <div class="hp hp-r"><figure class="phone phone--dark " data-tilt>
+  <div class="phone-shell"><img src="assets/img/player-square-dark.webp" alt="Pulse player square screen in dark mode" width="720" height="1595" loading="eager" fetchpriority="high" decoding="async"></div>
+  <figcaption class="tag"><i></i>Dark · Squared art</figcaption>
+</figure></div>
+  </div>
+
+  <div class="hero-card hero-card--l">
+    <p>Feel every beat of your own library, wrapped in a bold, fluid interface that looks stunning in <b>light</b> and <b>dark</b>.</p>
+  </div>
+  <div class="hero-card hero-card--r">
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.pulsemusic.app">Get it on Google Play</a>
+    <a class="btn btn--ghost" href="#library">See the screens</a>
+  </div>
+</header>
+
+<section class="marquees" aria-label="Features">
+  <div class="marq" aria-hidden="true"><div class="marq-track"><span>Tracks</span><i aria-hidden="true">✦</i><span>Albums</span><i aria-hidden="true">✦</i><span>Playlists</span><i aria-hidden="true">✦</i><span>Folders</span><i aria-hidden="true">✦</i><span>Queue</span><i aria-hidden="true">✦</i><span>Gapless</span><i aria-hidden="true">✦</i><span>Crossfade</span><i aria-hidden="true">✦</i><span>Light</span><i aria-hidden="true">✦</i><span>Dark</span><i aria-hidden="true">✦</i><span>Tracks</span><i aria-hidden="true">✦</i><span>Albums</span><i aria-hidden="true">✦</i><span>Playlists</span><i aria-hidden="true">✦</i><span>Folders</span><i aria-hidden="true">✦</i><span>Queue</span><i aria-hidden="true">✦</i><span>Gapless</span><i aria-hidden="true">✦</i><span>Crossfade</span><i aria-hidden="true">✦</i><span>Light</span><i aria-hidden="true">✦</i><span>Dark</span><i aria-hidden="true">✦</i><span>Tracks</span><i aria-hidden="true">✦</i><span>Albums</span><i aria-hidden="true">✦</i><span>Playlists</span><i aria-hidden="true">✦</i><span>Folders</span><i aria-hidden="true">✦</i><span>Queue</span><i aria-hidden="true">✦</i><span>Gapless</span><i aria-hidden="true">✦</i><span>Crossfade</span><i aria-hidden="true">✦</i><span>Light</span><i aria-hidden="true">✦</i><span>Dark</span><i aria-hidden="true">✦</i><span>Tracks</span><i aria-hidden="true">✦</i><span>Albums</span><i aria-hidden="true">✦</i><span>Playlists</span><i aria-hidden="true">✦</i><span>Folders</span><i aria-hidden="true">✦</i><span>Queue</span><i aria-hidden="true">✦</i><span>Gapless</span><i aria-hidden="true">✦</i><span>Crossfade</span><i aria-hidden="true">✦</i><span>Light</span><i aria-hidden="true">✦</i><span>Dark</span><i aria-hidden="true">✦</i></div></div>
+  <div class="marq marq--rev" aria-hidden="true"><div class="marq-track"><span>Tracks</span><i aria-hidden="true">✦</i><span>Albums</span><i aria-hidden="true">✦</i><span>Playlists</span><i aria-hidden="true">✦</i><span>Folders</span><i aria-hidden="true">✦</i><span>Queue</span><i aria-hidden="true">✦</i><span>Gapless</span><i aria-hidden="true">✦</i><span>Crossfade</span><i aria-hidden="true">✦</i><span>Light</span><i aria-hidden="true">✦</i><span>Dark</span><i aria-hidden="true">✦</i><span>Tracks</span><i aria-hidden="true">✦</i><span>Albums</span><i aria-hidden="true">✦</i><span>Playlists</span><i aria-hidden="true">✦</i><span>Folders</span><i aria-hidden="true">✦</i><span>Queue</span><i aria-hidden="true">✦</i><span>Gapless</span><i aria-hidden="true">✦</i><span>Crossfade</span><i aria-hidden="true">✦</i><span>Light</span><i aria-hidden="true">✦</i><span>Dark</span><i aria-hidden="true">✦</i><span>Tracks</span><i aria-hidden="true">✦</i><span>Albums</span><i aria-hidden="true">✦</i><span>Playlists</span><i aria-hidden="true">✦</i><span>Folders</span><i aria-hidden="true">✦</i><span>Queue</span><i aria-hidden="true">✦</i><span>Gapless</span><i aria-hidden="true">✦</i><span>Crossfade</span><i aria-hidden="true">✦</i><span>Light</span><i aria-hidden="true">✦</i><span>Dark</span><i aria-hidden="true">✦</i><span>Tracks</span><i aria-hidden="true">✦</i><span>Albums</span><i aria-hidden="true">✦</i><span>Playlists</span><i aria-hidden="true">✦</i><span>Folders</span><i aria-hidden="true">✦</i><span>Queue</span><i aria-hidden="true">✦</i><span>Gapless</span><i aria-hidden="true">✦</i><span>Crossfade</span><i aria-hidden="true">✦</i><span>Light</span><i aria-hidden="true">✦</i><span>Dark</span><i aria-hidden="true">✦</i></div></div>
+</section>
+
+<!-- ============================================================ THEME WIPE -->
+<section class="wipe" id="themes">
+  <div class="wipe-intro">
+    <p class="eyebrow">Themes</p>
+    <h2>One app.<br><em>Two moods.</em></h2>
+    <p>Every screen follows the theme: lists, cards, player and menus. Same red pulse, completely new atmosphere.</p>
+  </div>
+  <div class="wipe-stage">
+    <div class="wipe-bg wipe-bg--light" aria-hidden="true"></div>
+    <div class="wipe-words" aria-hidden="true"><span>Light</span><span>Dark</span></div>
+    <div class="wipe-phone">
+      <div class="phone phone--dark">
+        <div class="phone-shell">
+          <img src="assets/img/tracks-bottom-dark.webp" alt="Pulse Tracks screen in dark mode" width="720" height="1595" loading="lazy" decoding="async">
+          <img class="wipe-light" src="assets/img/tracks-bottom-light.webp" alt="Pulse Tracks screen in light mode" width="720" height="1595" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+    <div class="wipe-line" aria-hidden="true"><i></i></div>
+    <p class="wipe-hint" aria-hidden="true">Dark → Light · Tracks screen</p>
+  </div>
+</section>
+
+<!-- ================================================================ LIBRARY -->
+<section class="chapter" id="library">
+  <p class="eyebrow">The library</p>
+  <h2 class="chapter-title" data-split>Seven ways to<br><em>meet your music.</em></h2>
+  <p class="chapter-sub reveal">Every screen, in dark and light.</p>
+</section>
+
+<section class="feat" id="tracks" data-side="left">
+  <div class="blob" aria-hidden="true"></div>
+  <div class="feat-text">
+    <span class="feat-num" aria-hidden="true">01</span>
+    <p class="eyebrow">Library · Tracks</p>
+    <h2 data-split>Every song,<br><em>instantly.</em></h2>
+    <p class="feat-p reveal">Your whole library in one clean, lightning-fast list. Duration on every thumbnail, and the song that's playing glowing in Pulse red.</p>
+  </div>
+  <div class="duo ">
+  <div class="duo-a" data-speed="-1"><figure class="phone phone--dark " data-tilt>
+  <div class="phone-shell"><img src="assets/img/tracks-dark.webp" alt="Pulse tracks screen in dark mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Dark mode</figcaption>
+</figure></div>
+  <div class="duo-b" data-speed="1"><figure class="phone phone--light " data-tilt>
+  <div class="phone-shell"><img src="assets/img/tracks-light.webp" alt="Pulse tracks screen in light mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Light mode</figcaption>
+</figure></div>
+</div>
+</section>
+
+<section class="feat" id="albums" data-side="right">
+  <div class="blob" aria-hidden="true"></div>
+  <div class="feat-text">
+    <span class="feat-num" aria-hidden="true">02</span>
+    <p class="eyebrow">Library · Albums</p>
+    <h2 data-split>Albums as a <em>gallery.</em></h2>
+    <p class="feat-p reveal">Big artwork in a bold grid. Every album is a tile you want to tap.</p>
+  </div>
+  <div class="duo ">
+  <div class="duo-a" data-speed="-1"><figure class="phone phone--dark " data-tilt>
+  <div class="phone-shell"><img src="assets/img/albums-dark.webp" alt="Pulse albums screen in dark mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Dark mode</figcaption>
+</figure></div>
+  <div class="duo-b" data-speed="1"><figure class="phone phone--light " data-tilt>
+  <div class="phone-shell"><img src="assets/img/albums-light.webp" alt="Pulse albums screen in light mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Light mode</figcaption>
+</figure></div>
+</div>
+</section>
+
+<section class="feat" id="playlists" data-side="left">
+  <div class="blob" aria-hidden="true"></div>
+  <div class="feat-text">
+    <span class="feat-num" aria-hidden="true">03</span>
+    <p class="eyebrow">Library · Playlists</p>
+    <h2 data-split>Playlists, <em>one tap</em> away.</h2>
+    <p class="feat-p reveal">Create one in a tap. Your Favorites sit pinned right underneath, heart and all.</p>
+  </div>
+  <div class="duo ">
+  <div class="duo-a" data-speed="-1"><figure class="phone phone--dark " data-tilt>
+  <div class="phone-shell"><img src="assets/img/playlists-dark.webp" alt="Pulse playlists screen in dark mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Dark mode</figcaption>
+</figure></div>
+  <div class="duo-b" data-speed="1"><figure class="phone phone--light " data-tilt>
+  <div class="phone-shell"><img src="assets/img/playlists-light.webp" alt="Pulse playlists screen in light mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Light mode</figcaption>
+</figure></div>
+</div>
+</section>
+
+<section class="feat" id="inside-playlist" data-side="right">
+  <div class="blob" aria-hidden="true"></div>
+  <div class="feat-text">
+    <span class="feat-num" aria-hidden="true">04</span>
+    <p class="eyebrow">Library · Inside a playlist</p>
+    <h2 data-split>Dive into a <em>playlist.</em></h2>
+    <p class="feat-p reveal">Blurred artwork melts into a big, bold title. Hit Play all and go.</p>
+  </div>
+  <div class="duo ">
+  <div class="duo-a" data-speed="-1"><figure class="phone phone--dark " data-tilt>
+  <div class="phone-shell"><img src="assets/img/playlist-inside-dark.webp" alt="Pulse playlist inside screen in dark mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Dark mode</figcaption>
+</figure></div>
+  <div class="duo-b" data-speed="1"><figure class="phone phone--light " data-tilt>
+  <div class="phone-shell"><img src="assets/img/playlist-inside-light.webp" alt="Pulse playlist inside screen in light mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Light mode</figcaption>
+</figure></div>
+</div>
+</section>
+
+<section class="feat" id="folders" data-side="left">
+  <div class="blob" aria-hidden="true"></div>
+  <div class="feat-text">
+    <span class="feat-num" aria-hidden="true">05</span>
+    <p class="eyebrow">Library · Folders</p>
+    <h2 data-split>Browse the way your <em>files</em> live.</h2>
+    <p class="feat-p reveal">Your storage as a feed. Every folder gets its own swipeable rail.</p>
+  </div>
+  <div class="duo ">
+  <div class="duo-a" data-speed="-1"><figure class="phone phone--dark " data-tilt>
+  <div class="phone-shell"><img src="assets/img/folders-dark.webp" alt="Pulse folders screen in dark mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Dark mode</figcaption>
+</figure></div>
+  <div class="duo-b" data-speed="1"><figure class="phone phone--light " data-tilt>
+  <div class="phone-shell"><img src="assets/img/folders-light.webp" alt="Pulse folders screen in light mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Light mode</figcaption>
+</figure></div>
+</div>
+</section>
+
+<section class="feat" id="inside-folder" data-side="right">
+  <div class="blob" aria-hidden="true"></div>
+  <div class="feat-text">
+    <span class="feat-num" aria-hidden="true">06</span>
+    <p class="eyebrow">Library · Inside a folder</p>
+    <h2 data-split>Open a folder.<br><em>Play all.</em></h2>
+    <p class="feat-p reveal">Open a folder, hit Play all, and a whole directory becomes a listening session.</p>
+  </div>
+  <div class="duo ">
+  <div class="duo-a" data-speed="-1"><figure class="phone phone--dark " data-tilt>
+  <div class="phone-shell"><img src="assets/img/folder-inside-dark.webp" alt="Pulse folder inside screen in dark mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Dark mode</figcaption>
+</figure></div>
+  <div class="duo-b" data-speed="1"><figure class="phone phone--light " data-tilt>
+  <div class="phone-shell"><img src="assets/img/folder-inside-light.webp" alt="Pulse folder inside screen in light mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Light mode</figcaption>
+</figure></div>
+</div>
+</section>
+
+<section class="feat" id="queue" data-side="left">
+  <div class="blob" aria-hidden="true"></div>
+  <div class="feat-text">
+    <span class="feat-num" aria-hidden="true">07</span>
+    <p class="eyebrow">Library · Queue</p>
+    <h2 data-split>Take control of the <em>queue.</em></h2>
+    <p class="feat-p reveal">See what's next. Drag to reorder, clear it in a tap.</p>
+  </div>
+  <div class="duo ">
+  <div class="duo-a" data-speed="-1"><figure class="phone phone--dark " data-tilt>
+  <div class="phone-shell"><img src="assets/img/queue-dark.webp" alt="Pulse queue screen in dark mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Dark mode</figcaption>
+</figure></div>
+  <div class="duo-b" data-speed="1"><figure class="phone phone--light " data-tilt>
+  <div class="phone-shell"><img src="assets/img/queue-light.webp" alt="Pulse queue screen in light mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Light mode</figcaption>
+</figure></div>
+</div>
+</section>
+
+<!-- ================================================================ PLAYER -->
+<section class="stepper" id="player">
+  <div class="stepper-stage">
+    <div class="stepper-head">
+      <p class="eyebrow">Now playing</p>
+      <h2 data-split>Your cover. <em>Your shape.</em></h2>
+    </div>
+    <div class="stepper-grid">
+      <div class="step-texts">
+<article class="step-text">
+  <span class="feat-num" aria-hidden="true">01</span>
+  <p class="eyebrow">Cover art · Circle</p>
+  <h3 class="step-h">Round, like a <em>record.</em></h3>
+  <p class="feat-p">Your cover art in a perfect circle, floating over a gradient pulled from the artwork itself.</p>
+</article>
+<article class="step-text">
+  <span class="feat-num" aria-hidden="true">02</span>
+  <p class="eyebrow">Cover art · Squared</p>
+  <h3 class="step-h">A rounded <em>square</em> frame.</h3>
+  <p class="feat-p">A soft-cornered tile, with colours flowing from the cover into the whole player.</p>
+</article>
+<article class="step-text">
+  <span class="feat-num" aria-hidden="true">03</span>
+  <p class="eyebrow">Cover art · Full art</p>
+  <h3 class="step-h">Art, <em>edge to edge.</em></h3>
+  <p class="feat-p">The cover stretches edge to edge and fades into the controls. Pure immersion.</p>
+</article>
+      </div>
+      <div class="step-visuals">
+<div class="step-vis"><div class="duo duo--tight">
+  <div class="duo-a" data-speed="-1"><figure class="phone phone--dark " data-tilt>
+  <div class="phone-shell"><img src="assets/img/player-circle-dark.webp" alt="Pulse player circle screen in dark mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Dark mode</figcaption>
+</figure></div>
+  <div class="duo-b" data-speed="1"><figure class="phone phone--light " data-tilt>
+  <div class="phone-shell"><img src="assets/img/player-circle-light.webp" alt="Pulse player circle screen in light mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Light mode</figcaption>
+</figure></div>
+</div></div>
+<div class="step-vis"><div class="duo duo--tight">
+  <div class="duo-a" data-speed="-1"><figure class="phone phone--dark " data-tilt>
+  <div class="phone-shell"><img src="assets/img/player-square-dark.webp" alt="Pulse player square screen in dark mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Dark mode</figcaption>
+</figure></div>
+  <div class="duo-b" data-speed="1"><figure class="phone phone--light " data-tilt>
+  <div class="phone-shell"><img src="assets/img/player-square-light.webp" alt="Pulse player square screen in light mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Light mode</figcaption>
+</figure></div>
+</div></div>
+<div class="step-vis"><div class="duo duo--tight">
+  <div class="duo-a" data-speed="-1"><figure class="phone phone--dark " data-tilt>
+  <div class="phone-shell"><img src="assets/img/player-full-dark.webp" alt="Pulse player full screen in dark mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Dark mode</figcaption>
+</figure></div>
+  <div class="duo-b" data-speed="1"><figure class="phone phone--light " data-tilt>
+  <div class="phone-shell"><img src="assets/img/player-full-light.webp" alt="Pulse player full screen in light mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Light mode</figcaption>
+</figure></div>
+</div></div>
+      </div>
+    </div>
+    <div class="step-dots" role="tablist" aria-label="Cover art styles">
+<button class="dot" type="button" data-i="0" aria-label="Show Circle cover art"><span>01</span>Circle</button>
+<button class="dot" type="button" data-i="1" aria-label="Show Squared cover art"><span>02</span>Squared</button>
+<button class="dot" type="button" data-i="2" aria-label="Show Full art cover art"><span>03</span>Full art</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ NAV COMPARE -->
+<section class="navs" id="navigation">
+  <div class="navs-head">
+    <p class="eyebrow">Navigation layout</p>
+    <h2 data-split>Tabs up top.<br><em>Or thumbs down low.</em></h2>
+    <p class="chapter-sub reveal">Animated tabs on top, or a classic bar under your thumb.</p>
+  </div>
+  <div class="navs-grid">
+    <div class="nav-col">
+      <h3 class="nav-col-title"><span>A</span> Top tabs</h3>
+      <p class="nav-col-p">Animated flight tabs and search, all in the header.</p>
+      <div class="duo duo--sm">
+  <div class="duo-a" data-speed="-1"><figure class="phone phone--dark " data-tilt>
+  <div class="phone-shell"><img src="assets/img/tracks-dark.webp" alt="Pulse tracks screen in dark mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Dark mode</figcaption>
+</figure></div>
+  <div class="duo-b" data-speed="1"><figure class="phone phone--light " data-tilt>
+  <div class="phone-shell"><img src="assets/img/tracks-light.webp" alt="Pulse tracks screen in light mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Light mode</figcaption>
+</figure></div>
+</div>
+    </div>
+    <div class="nav-col">
+      <h3 class="nav-col-title"><span>B</span> Bottom bar</h3>
+      <p class="nav-col-p">Four icons under your thumb, mini player just above.</p>
+      <div class="duo duo--sm">
+  <div class="duo-a" data-speed="-1"><figure class="phone phone--dark " data-tilt>
+  <div class="phone-shell"><img src="assets/img/tracks-bottom-dark.webp" alt="Pulse tracks bottom screen in dark mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Dark mode</figcaption>
+</figure></div>
+  <div class="duo-b" data-speed="1"><figure class="phone phone--light " data-tilt>
+  <div class="phone-shell"><img src="assets/img/tracks-bottom-light.webp" alt="Pulse tracks bottom screen in light mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Light mode</figcaption>
+</figure></div>
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ SETTINGS -->
+<section class="feat feat--settings" id="settings" data-side="right">
+  <div class="blob" aria-hidden="true"></div>
+  <div class="feat-text">
+    <span class="feat-num" aria-hidden="true">08</span>
+    <p class="eyebrow">Settings</p>
+    <h2 data-split>Tune it until it's <em>yours.</em></h2>
+    <p class="feat-p reveal">Appearance, library and playback, all in tidy cards.</p>
+    <div class="chips">
+<div class="chip-group"><h3>Appearance</h3><ul><li class="chip"><b>Dark Mode</b></li><li class="chip"><b>Navigation Layout</b></li><li class="chip"><b>Cover Art Shape</b></li><li class="chip"><b>Auto Gradient</b></li><li class="chip"><b>Background Blur</b></li></ul></div>
+<div class="chip-group"><h3>Library</h3><ul><li class="chip"><b>Folder Filter</b></li></ul></div>
+<div class="chip-group"><h3>Playback</h3><ul><li class="chip"><b>Gapless Playback</b></li><li class="chip"><b>Crossfade</b></li><li class="chip"><b>Volume Normalization</b></li><li class="chip"><b>Pause on Audio Loss</b></li></ul></div>
+    </div>
+  </div>
+  <div class="duo ">
+  <div class="duo-a" data-speed="-1"><figure class="phone phone--dark " data-tilt>
+  <div class="phone-shell"><img src="assets/img/settings-dark.webp" alt="Pulse settings screen in dark mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Dark mode</figcaption>
+</figure></div>
+  <div class="duo-b" data-speed="1"><figure class="phone phone--light " data-tilt>
+  <div class="phone-shell"><img src="assets/img/settings-light.webp" alt="Pulse settings screen in light mode" width="720" height="1595" loading="lazy" decoding="async"></div>
+  <figcaption class="tag"><i></i>Light mode</figcaption>
+</figure></div>
+</div>
+</section>
+
+<!-- ================================================================ CTA -->
+<section class="cta" id="download">
+  <div class="rings rings--cta" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <p class="eyebrow">Ready?</p>
+  <h2 class="cta-title" data-split>Press play on <em>Pulse.</em></h2>
+  <p class="cta-sub reveal">Your music is already on your phone. Give it the interface it deserves.</p>
+  <div class="cta-btns reveal">
+    <a class="btn btn--lg" href="https://play.google.com/store/apps/details?id=com.pulsemusic.app">Get it on Google Play</a>
+    <a class="btn btn--ghost btn--lg" href="#top">Back to top</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <a class="brand" href="#top"><svg class="note" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.6325,9.17667 L14,10.7208 L14,17.5001 C14,19.9853 11.9853,22.0001 9.5,22.0001 C7.01472,22.0001 5,19.9853 5,17.5001 C5,15.0148 7.01472,13.0001 9.5,13.0001 C10.4251,13.0001 11.285,13.2792 12,13.7578 L12,6.44158 C12,5.15029 12.8263,4.00387 14.0513,3.59553 L18.0257,2.27075 C18.997,1.94699 20,2.66994 20,3.69378 L20,7.2793 C20,8.14017 19.4491,8.90444 18.6325,9.17667 Z"/></svg><span>Pulse</span></a>
+  <p>Pulse Music · <a href="../" style="text-decoration:underline">More apps</a> · <a href="https://github.com/git-drs" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">GitHub</a> · <a href="https://www.youtube.com/@WILD_DRS_OFFICIAL" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">YouTube</a></p>
+</footer>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
